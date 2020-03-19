@@ -1,0 +1,4 @@
+.all-recipe-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
