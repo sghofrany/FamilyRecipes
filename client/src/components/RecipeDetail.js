@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import {BreakComponent} from '../components/BreakComponent';
+import ToolbarComponent from '../components/ToolbarComponent';
 import '../css/recipedetail.css';
 
 function RecipeDetail({ match }) {
@@ -28,7 +30,9 @@ function RecipeDetail({ match }) {
     }, []);
 
     return(
-        <div className="detail-wrapper">
+        <div>
+            <ToolbarComponent/>
+            <div className="detail-wrapper">
 
             <div className="detail-top-text">
                 <h1>{loading ? "" : data.recipe_name}</h1>
@@ -41,7 +45,34 @@ function RecipeDetail({ match }) {
                 }
             </div>
 
+            <BreakComponent />
+
+            <h2>Ingredients</h2>
+
+            <div className="detail-instructions">
+                {
+                    loading ? "" : 
+                    data.recipe.map((item) =>
+                        <li>{item}</li>
+                    )
+                }
+            </div>
+
+            <h2>Instructions</h2>
+
+            <div className="detail-instructions">
+                {
+                    loading ? "" : 
+                    data.instructions.map((item) =>
+                        <li>{item}</li>
+                    )
+                }
+            </div>
+
+            </div>
         </div>
+
+        
     )
 }
 
