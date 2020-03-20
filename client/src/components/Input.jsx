@@ -1,12 +1,12 @@
 import React from 'react';
-import '../css/search.css';
+import '../css/input.css';
 
 const STYLE = [
     "input--valid",
     "input--invalid"
 ]
 
-export const Search = ({
+export const Input = ({
     type,
     value,
     placeholder,

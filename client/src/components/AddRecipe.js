@@ -1,5 +1,10 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
+import { Input } from '../components/Input';
+import { Textarea } from '../components/Textarea';
+import { Button } from '../components/Button';
+import '../css/addrecipe.css';
 
 function AddRecipe(props) {
 
@@ -60,31 +65,31 @@ function AddRecipe(props) {
     }
 
     return(
-        <div style={formStyle}>
+        <div className="add-wrapper">
             <p>Recipe Title</p>
-            <input value={title} onChange={handleTitleChange} type="text"/>
+            <Input onChange={handleTitleChange} placeholder="Enter your recipe title here" type="text">{title}</Input>
             
             <p>Ingredients</p>
-            <textarea value={ingredients} onChange={handleIngredientChange} style={textareaStyle}/>
-            
+            <Textarea onChange={handleIngredientChange} placeholder="Separate each ingredient with a comma. For example: Ingredient One, Ingredient Two, Ingredient Three, etc">{ingredients}</Textarea>
+
             <p>Instructions</p>
-            <textarea value={instructions} onChange={handleInstructionChange} style={textareaStyle}/>
+            <Textarea onChange={handleInstructionChange} placeholder="Separate each instruction with a comma. For example: Step One, Step Two, Step Three, etc">{instructions}</Textarea>
             
-            <input type="submit" value="Submit" onClick={handleClick}/>
+            <Link to="/view">
+                <Button type="submit" onClick={handleClick}>Submit</Button>
+            </Link>
+            <span style={leftMargin}></span>
+            <Link to="/">
+                <Button>Home</Button>
+            </Link>
+
         </div>
     );
 }
 
-const textareaStyle = {
-    width: "100%",
-    height: "200px",
-    resize: "none",
-    boxSizing: "border-box"
+const leftMargin = {
+    marginLeft: "10px"
 }
 
-const formStyle = {
-    display: "block",
-    width: "100%"
-}
 
 export default AddRecipe;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from '../components/Button';
-import {Search} from '../components/Search';
+import {Input} from '../components/Input';
 
 const buttonStyle = {
     float: "right"
@@ -16,7 +16,7 @@ function ToolbarComponent() {
     return(
         <div className="toolbar-wrapper">
            
-            <Search className="input input--valid" type="input" placeholder="Type recipe name"></Search>
+            <Input className="input input--valid" type="input" placeholder="Type recipe name"></Input>
 
             <div style={buttonStyle}>
                 <Link to="/">
